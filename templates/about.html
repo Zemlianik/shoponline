@@ -9,8 +9,10 @@
   <div class="text-center">
   <h1>Информация о товаре</h1><br>
   </div>
+<div class="card-deck mb-3">
+  {% for el in data %}
     <main class="container">
-      {{data}}
+
     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
@@ -64,6 +66,7 @@
         </div>
       </div>
     </div>
-  </main>
-
+    </main>
+  {% endfor %}
+</div>
 {% endblock %}
