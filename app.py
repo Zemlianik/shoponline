@@ -15,7 +15,7 @@ class Item(db.Model):
     grade=db.Column(db.String(200), nullable=False)
 
     def __repr__(self):
-        return self.title
+        return 'self.title'
 
 
 
