@@ -6,13 +6,11 @@
 {% endblock %}
 
 {% block body %}
-
+  <div class="text-center">
   <h1>Информация о товаре</h1><br>
-
-
-<div class="container card-desk mb-3">
-  {% for el in data %}
-  <main>
+  </div>
+    <main class="container">
+      {{data}}
     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
@@ -67,7 +65,5 @@
       </div>
     </div>
   </main>
-  {% endfor %}
-</div>
 
 {% endblock %}

@@ -9,13 +9,13 @@ db=SQLAlchemy(app)
 class Item(db.Model):
     id= db.Column(db.Integer, primary_key=True)
     title=db.Column(db.String(150), nullable=False)
-    price=db.Column(db.Integer)
+    price=db.Column(db.Integer,nullable=False)
     isActive=db.Column(db.Boolean,default=True)
     image=0
     grade=db.Column(db.String(200), nullable=False)
 
     def __repr__(self):
-        return 'self.title'
+        return 'Запись'
 
 
 
@@ -25,7 +25,8 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    items=Item.query.order_by(Item.price).all()
+    return render_template('about.html',data=items)
 
 @app.route('/create')
 def create():
