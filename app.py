@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 app=Flask(__name__)
@@ -6,7 +6,7 @@ app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///shop.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 db=SQLAlchemy(app)
 
-class item(db.Model):
+class Item(db.Model):
     id= db.Column(db.Integer, primary_key=True)
     title=db.Column(db.String(150), nullable=False)
     price=db.Column(db.Integer)
@@ -30,6 +30,24 @@ def about():
 @app.route('/create')
 def create():
     return render_template('create.html')
+
+@app.route('/create',methods=['POST','SET'])
+def creates():
+    if request.method=='POST':
+        title=request.form['title']
+        price = request.form['price']
+        grade = request.form['grade']
+
+        item=Item(title=title, price=price,grade=grade)
+
+        try:
+            db.session.add(item)
+            db.session.commit()
+            return redirect('/about')
+        except:
+            return 'Произошла ошибка'
+    else:
+        return render_template('create.html')
 
 @app.route('/gold')
 def gold():
