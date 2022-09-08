@@ -7,7 +7,7 @@ api = Api(merchant_id=1396424,
 checkout = Checkout(api=api)
 data = {
     "currency": "USD",
-    "amount": 10000
+    "amount": 100000
 }
 url = checkout.url(data).get('checkout_url')
 
