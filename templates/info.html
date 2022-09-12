@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+    
+
+{% block title %}
+<title>Про авто</title>
+{% endblock %}
+
+{% block body %}
+  <div class="text-center">
+  <h1>Основные характеристики</h1><br>
+  </div>
+<div class="card-deck mb-3">
+  {% for el in data %}
+    <main class="container">
+
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">{{ el.title }}</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">{{ el.price }}<small class="text-muted fw-light">у.е.</small></h1>
+            <ul class="png-center">
+              <img src="/static/css/kol.png" width="70" height="58" class="me-">
+
+            </ul>
+            <h1 class="card-title pricing-card-title">{{ el.grade }}</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">В наличии</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">Полный пакет<small class="text-muted fw-light"></small></h1>
+            <a type="button" class="w-100 btn btn-lg btn-warning" href="/gold">Перейти к оформлению</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="card-header py-3 text-bg-danger border-autline-danger">
+            <h4 class="my-0 fw-normal">Характеристики авто</h4>
+          </div>
+          <div class="card-body">
+          <ul class="png-center">
+              <img src="/static/css/dw.png" width="70" height="60" class="me-"><img src="/static/css/tz.png" width="70" height="60" class="me-"><img src="/static/css/kol2.png" width="70" height="60" class="me-"><img src="/static/css/korp.png" width="70" height="60" class="me-">
+
+            </ul>
+            <button type="button" class="w-100 btn btn-lg btn-primary">Ознакомиться</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </main>
+  {% endfor %}
+</div>
+{% endblock %}
