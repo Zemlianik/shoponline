@@ -34,6 +34,10 @@ class Item(db.Model):
 def index():
     return render_template('index.html')
 
+@app.route('/info')
+def info():
+    return render_template('info.html')
+
 @app.route('/about')
 def about():
     items=Item.query.order_by(Item.price).all()
